@@ -1,0 +1,39 @@
+﻿<Window x:Class="WpfControls.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfControls"
+        mc:Ignorable="d"
+        Title="Window1" Height="450" Width="800" Name="Gregandfredswindow">
+    <Grid>
+        <StackPanel>
+            <Button Command="{Binding AddTabCommand}">Add</Button>
+        </StackPanel>
+
+        <TabControl x:Name="tabMain" Loaded="tbCtrl_Loaded">
+            <TabItem Header="General" >
+                <StackPanel>
+                    <TextBlock Text="{Binding Message}" />
+                    <TextBlock>Here's a button. It's nice and shiny.</TextBlock>
+                    <Button Command="{Binding ClickCommand}">The Shiny Button</Button>
+                    <Button Command="{Binding ResetCommand}">Reset</Button>
+                    <Button Command="{Binding ChangeToWinkle}">Change To Winkle</Button>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock>It has been clicked</TextBlock>
+                        <TextBlock Text="{Binding ClickCount}" Margin="5,0" />
+                        <TextBlock>time(s).</TextBlock>
+                    </StackPanel>
+                    <WrapPanel>
+                        <Label Target="{Binding ElementName=txtName}">Name:</Label>
+                        <TextBox Name="txtName" Text="{Binding Name}"></TextBox>
+                    </WrapPanel>
+                </StackPanel>
+
+            </TabItem>
+            <TabItem Header="Security"/>
+            <TabItem Header="Details"></TabItem>
+
+        </TabControl>
+    </Grid>
+</Window>
